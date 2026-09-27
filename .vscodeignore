@@ -1,0 +1,16 @@
+# Exclude the standalone Electron desktop app
+desktop-app/**
+
+# Exclude development configuration and source files
+.bob/**
+.vscode/**
+src/**
+tsconfig.json
+
+# Exclude the generated VSIX and build artifacts
+*.vsix
+*.map
+
+# Exclude development and repository files
+.git/**
+.gitignore

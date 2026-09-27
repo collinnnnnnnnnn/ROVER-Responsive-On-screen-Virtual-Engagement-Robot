@@ -1,0 +1,85 @@
+{
+  "name": "dev-mascot",
+  "displayName": "Dev Mascot",
+  "description": "An intelligent, interactive virtual mascot that reacts to your coding activity",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.138.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "devMascot.show",
+        "title": "Dev Mascot: Show"
+      },
+      {
+        "command": "devMascot.hide",
+        "title": "Dev Mascot: Hide"
+      }
+    ],
+    "configuration": {
+      "title": "Dev Mascot",
+      "properties": {
+        "devMascot.llmProvider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "anthropic",
+            "ollama",
+            "none"
+          ],
+          "default": "none",
+          "description": "Which LLM provider powers the mascot's responses"
+        },
+        "devMascot.llmApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for the selected LLM provider (leave empty for Ollama)"
+        },
+        "devMascot.ollamaModel": {
+          "type": "string",
+          "default": "llama3",
+          "description": "Model name when using Ollama (local)"
+        },
+        "devMascot.verbosity": {
+          "type": "string",
+          "enum": [
+            "quiet",
+            "normal",
+            "chatty"
+          ],
+          "default": "normal",
+          "description": "How often the mascot speaks up unprompted"
+        },
+        "devMascot.enableSleepMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mascot falls asleep after 5 minutes of inactivity"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/semver": "^7.8.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^4.0.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/ws": "^8.18.1",
+    "axios": "^1.6.0",
+    "ws": "^8.21.3"
+  }
+}
