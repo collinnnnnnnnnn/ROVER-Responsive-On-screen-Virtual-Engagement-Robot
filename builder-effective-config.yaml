@@ -1,0 +1,25 @@
+directories:
+  output: release
+  buildResources: build
+appId: com.janegeronimo.devm-mascot
+productName: Dev Mascot
+files:
+  - filter:
+      - out/**/*
+      - renderer/**/*
+      - settings/**/*
+      - assets/**/*
+      - package.json
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: Dev-Mascot-Setup-${version}.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Dev Mascot
+electronVersion: 44.4.5
